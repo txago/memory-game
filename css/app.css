@@ -1,109 +1,157 @@
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 html,
 body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-    font-family: 'Coda', cursive;
+  background: #292929;
+  background: -webkit-linear-gradient(to top, rgba(0, 0, 0, 0.93) 10%, rgba(63, 61, 61, 1) 80%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.93) 10%, rgba(63, 61, 61, 1) 80%);
+  font-family: 'Work Sans', sans-serif;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+  font-family: 'Work Sans', sans-serif;
+  color: #f1f1f1;
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin: 40px 0;
 }
 
-/*
- * Styles for the deck of cards
- */
-
+/* Styles for the deck of cards */
 .deck {
-    width: 660px;
-    min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 32px;
-    border-radius: 10px;
-    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 0 3em;
+  width: 660px;
+  min-height: 655px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 18px 32px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 10px 0 rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 3em;
 }
 
 .deck .card {
-    height: 125px;
-    width: 125px;
-    background: #2e3d49;
-    font-size: 0;
-    color: #ffffff;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+  height: 125px;
+  width: 125px;
+  background: #f1f1f1;
+  font-size: 33px;
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+  transition: 0.4s;
 }
 
 .deck .card.open {
-    transform: rotateY(0);
-    background: #02b3e4;
-    cursor: default;
+  transform: rotateY(0);
+  background: #02b3e4;
+  cursor: default;
+  transform: rotateY(180deg);
 }
 
-.deck .card.show {
-    font-size: 33px;
-}
+.deck .card.show {}
 
 .deck .card.match {
-    cursor: default;
-    background: #02ccba;
-    font-size: 33px;
+  cursor: default;
+  background: #02ccba;
+  transform: rotateY(180deg);
 }
 
-/*
- * Styles for the Score Panel
- */
+.deck .card i {
+  opacity: 0;
+  transform: rotateY(180deg);
+}
 
+.deck .card.open i, .deck .card.show i, .deck .card.match i {
+  opacity: 1;
+}
+
+.deck .card.open .behance {
+  background-color: #1769ff;
+}
+
+.deck .card.open .dribbble {
+  background-color: #ea4c89;
+}
+
+.deck .card.open .facebook {
+  background-color: #3b5998;
+}
+
+.deck .card.open .instagram {
+  background-color: #833ab4;
+}
+
+.deck .card.open .linkedin {
+  background-color: #0077b5;
+}
+
+.deck .card.open .snapchat {
+  background-color: #fffc00;
+}
+
+.deck .card.open .twitter {
+  background-color: #1da1f2;
+}
+
+.deck .card.open .youtube {
+  background-color: #ff0000;
+}
+
+/* Styles for the Score Panel */
 .score-panel {
-    text-align: left;
-    width: 345px;
-    margin-bottom: 10px;
+  color: #fff;
+  text-align: left;
+  width: 400px;
+  margin-bottom: 20px;
 }
 
 .score-panel .stars {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 0;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  margin: 0 5px 0 0;
 }
 
 .score-panel .stars li {
-    list-style: none;
-    display: inline-block;
+  list-style: none;
+  display: inline-block;
+}
+
+.score-panel .restart-button {
+  width: auto;
+  display: inline;
+  float: right;
+  cursor: pointer;
 }
 
 .score-panel .restart {
-    float: right;
-    cursor: pointer;
+  margin-left: 10px;
 }

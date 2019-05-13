@@ -1,7 +1,53 @@
-/*
- * Create a list that holds all of your cards
- */
+// Cards list array
+const brands = ['behance', 'dribbble', 'facebook', 'instagram', 'linkedin',
+'snapchat', 'twitter', 'youtube'];
 
+// Global vars
+const cardsDeck = document.querySelector('#brand-deck');
+let moves = 0;
+const movesCounter = document.querySelector(".moves");
+
+// Cards arrays
+let flippedCards = [];
+let matchedCards = [];
+
+// Deck EventListener
+cardsDeck.addEventListener('click', cardClick);
+
+// Cards interaction
+function cardClick(evt) {
+  let clickedCard = evt.target;
+
+  if (clickedCard.classList.contains('card') && !clickedCard.classList.contains('open', 'show', 'match')) {
+    clickedCard.classList.add('open', 'show');
+    flippedCards.push(clickedCard);
+  }
+
+  if (flippedCards.length === 2) {
+    clickNum();
+
+    if (flippedCards[0].innerHTML === flippedCards[1].innerHTML) {
+      // Flipped cards match!
+      matched();
+    } else {
+      // Flipped cards doesn't match!
+      setTimeout(() => {
+        flippedCards[0].classList.remove('open', 'show');
+        flippedCards[1].classList.remove('open', 'show');
+        flippedCards = [];
+      }, 1000);
+    }
+  }
+}
+
+// Flipped cards match!
+function matched() {
+  flippedCards[0].classList.add('match');
+  flippedCards[1].classList.add('match');
+  matchedCards.push(flippedCards[0]);
+  matchedCards.push(flippedCards[1]);
+  flippedCards = [];
+}
 
 /*
  * Display the cards on the page
@@ -23,6 +69,16 @@ function shuffle(array) {
     }
 
     return array;
+}
+
+// Click moves
+function clickNum() {
+    moves++;
+    if (moves === 1) {
+        movesCounter.innerHTML = '1 move';
+    } else {
+        movesCounter.innerHTML = `${moves} moves`;
+    }
 }
 
 
