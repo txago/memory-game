@@ -8,5 +8,5 @@ As I went through the .js file instructions and based myself on the material pro
 
 ## Resources
 * Social media logos by [Font Awesome] (https://fontawesome.com/ "Font Awesome")
-* Brand colors by [BrandColors] (https://brandcolors.net/, "BrandColors")
-* Web API documentation by [Mozilla] (https://developer.mozilla.org/en-US/docs/Web/API, "Mozilla")
+* Brand colors by [BrandColors] (https://brandcolors.net/ "BrandColors")
+* Web API documentation by [Mozilla] (https://developer.mozilla.org/en-US/docs/Web/API "Mozilla")
