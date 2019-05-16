@@ -7,6 +7,6 @@ With the [fend-project-memory-game](https://github.com/udacity/fend-project-memo
 As I went through the .js file instructions and based myself on the material provided by the Udacity Nanodegree course and Mozilla documentation, I mostly used event phases, listeners and delegation; manipulation of element methods and properties, as well as some CSS customisation. 
 
 ## Resources
-* Social media logos by [Font Awesome] (https://fontawesome.com/)
-* Brand colors by [BrandColors] (https://brandcolors.net/)
-* Web API documentation by [Mozilla] (https://developer.mozilla.org/en-US/docs/Web/API)
+* Social media logos by [https://fontawesome.com/] (Font Awesome)
+* Brand colors by [https://brandcolors.net/] (BrandColors)
+* Web API documentation by [https://developer.mozilla.org/en-US/docs/Web/API] (Mozilla)
