@@ -1,13 +1,19 @@
 // Global vars
-const deck = document.querySelector('.deck');
+const deckWrapper = document.querySelector("#deck-wrapper");
 const restart = document.querySelector(".restart-button");
 
-// Empty array list that holds all of the cards
+// Array list of all the social network icons
+const socialIcons = ["fab fa-behance", "fab fa-dribbble",
+"fab fa-facebook-square", "fab fa-instagram", "fab fa-linkedin",
+"fab fa-pinterest-p", "fab fa-twitter", "fab fa-youtube", "fab fa-behance",
+"fab fa-dribbble", "fab fa-facebook-square", "fab fa-instagram",
+"fab fa-linkedin", "fab fa-pinterest-p", "fab fa-twitter", "fab fa-youtube"];
+
+// Empty array list that will hold all of the cards
 let cardsList = [];
 
-// Matched cards vars
+// initial matched cards vars
 let matchedCards = 0;
-const totalMatches = 8;
 
 // Moves vars
 let moves = 0;
@@ -32,19 +38,25 @@ const modalButton = document.querySelector('.modal-button');
 // Rate vars
 const stars = document.querySelector('.stars').childNodes;
 const starsStats = document.querySelector('.stars');
-
-// Function to randomize the cards on the deck
-function randomDeck() {
-  const cardsToShuffle = Array.from(document.querySelectorAll('.deck li'));
-  const shuffledCards = shuffle(cardsToShuffle);
-  for (let card of shuffledCards) {
-    deck.appendChild(card);
-  }
-}
 randomDeck();
 
+// Function to create random card deck
+function randomDeck() {
+    deckWrapper.innerHTML = "";
+    const newDeck = document.createElement('ul');
+    newDeck.classList.add('deck');
+    let shuffleIcons = shuffle(socialIcons);
+    for (let i = 0; i < shuffleIcons.length; i++) {
+        const newLi = document.createElement('li');
+        newLi.classList.add('card');
+        newLi.innerHTML = `<i class="${shuffleIcons[i]}"></i>`;
+        newDeck.appendChild(newLi);
+    }
+    deckWrapper.append(newDeck);
+}
+
 // Event Delegation for cards' clicking and matching behaviour
-deck.addEventListener('click', event => {
+deckWrapper.addEventListener('click', event => {
   const clickTarget = event.target;
   if (clickTarget.classList.contains('card') &&
   !clickTarget.classList.contains('match') && cardsList.length < 2 &&
@@ -70,6 +82,7 @@ function flipCard(clickTarget) {
 
 // Function to match cards
 function matchCards() {
+  const totalMatches = 8;
   if (cardsList[0].innerHTML === cardsList[1].innerHTML) {
     cardsList[0].classList.toggle('match');
     cardsList[1].classList.toggle('match');
@@ -95,22 +108,17 @@ function countMoves() {
     } else {
         movesCount.innerHTML = `${moves} moves`;
     }
-    starsRating();
-}
-
-// Function to set the stars rating
-function starsRating() {
-  if (moves === 6) {
-    stars[9].innerHTML = '<i class="far fa-star">';
-  } else if (moves === 12) {
-    stars[7].innerHTML = '<i class="far fa-star">';
-  } else if (moves === 24) {
-    stars[5].innerHTML = '<i class="far fa-star">';
-  } else if (moves === 32) {
-    stars[3].innerHTML = '<i class="far fa-star">';
-  } else if (moves === 44) {
-    stars[1].innerHTML = '<i class="far fa-star">';
-  }
+    if (moves === 6) {
+      stars[9].innerHTML = '<i class="far fa-star">';
+    } else if (moves === 12) {
+      stars[7].innerHTML = '<i class="far fa-star">';
+    } else if (moves === 24) {
+      stars[5].innerHTML = '<i class="far fa-star">';
+    } else if (moves === 32) {
+      stars[3].innerHTML = '<i class="far fa-star">';
+    } else if (moves === 44) {
+      stars[1].innerHTML = '<i class="far fa-star">';
+    }
 }
 
 // Function to start the clock
