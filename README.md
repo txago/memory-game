@@ -1,4 +1,4 @@
-# Udacity Front-End Web Developer Nanodegree Project 2
+# Memory Game
 This is the second project that I submitted to the **Front-End Web Developer Nanodegree** by **Udacity**. It consists of a **memory game** made with HTML, CSS, and JavaScript and I called it "Social Networking Game", in which the user needs to match social network logos.
 
 ## Process
